@@ -23,10 +23,12 @@
 
     <title>회원가입</title>
 </head>
+<script>
+</script>
 
 <body>
     <div class="wrap">
-        <h1>회원가입 페이지</h1>
+        <h1 style="margin-top: 60px;">회원가입 페이지</h1>
         <div class="input-group mb-3 info"><!--이름-->
             <span class="input-group-text" id="input_name">이름</span>
             <input type="text" class="form-control" aria-label="Sizing example input"
@@ -39,12 +41,17 @@
         </div>
         <div class="input-group mb-3 info"><!--비밀번호-->
             <span class="input-group-text" id="input_pw">비밀번호</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="password" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3 info"><!--비밀번호-->
+            <span class="input-group-text" id="input_rpw">비밀번호확인</span>
+            <input type="password" class="form-control" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3 info"><!--이메일-->
             <span class="input-group-text" id="input_mail">이메일</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="email" class="form-control" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <button type="button" class="btn btn-primary">가입하기</button>
