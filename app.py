@@ -17,25 +17,22 @@ app.config['JWT_COOKIE_CSRF_PROTECT'] = True
 client = MongoClient('localhost', 27017)
 db = client.dbname
 
-#테스트
-db.users.insert_one({'user_id' : 'test', 'user_pw' : 'test', 'user_name' : 'test',
-                     'user_email': '.com', 'user_ordinal': 1})
 @app.route('/')
-def login():
-    return render_template('')
+def sign_up():
+    return render_template('sign_up.html')
 
 #회원가입
-@app.route('/sign_up', methods=['GET','POST'])
+@app.route('/sign_info', methods=['GET','POST'])
 def register():
     if request.method == 'GET':
         return render_template("sign_up.html")
     else:
-        username = request.form.get('username')
-        email = request.form.get('email')
-        ordinal = request.form.get('ordinal')
-        userid = request.form.get('userid')
-        password = request.form.get('password')
-        re_password = request.form.get('re_password')
+        username = request.form.get('username_give')
+        email = request.form.get('email_give')
+        ordinal = request.form.get('ordinal_give')
+        userid = request.form.get('userid_give')
+        password = request.form.get('password_give')
+        re_password = request.form.get('re_password_give')
 
         userinfo = {'user_id': userid, 'user_name': username, 'user_pw': password,
                     'user_email': email, 'user_ordinal': ordinal}
@@ -49,4 +46,7 @@ def register():
             return "회원가입이 완료되었습니다!"
         return redirect('/sign_up')
 
+    db.name.insert_one(doc)
 
+if __name__ == '__main__':
+   app.run('0.0.0.0',port=5000,debug=True)

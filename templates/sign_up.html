@@ -24,6 +24,23 @@
     <title>회원가입</title>
 </head>
 <script>
+    function sign_up() {
+        let name = $('#input_name').val();
+        let id = $('#input_id').val();
+        let pw = $('#input_pw').val();
+        let email = $('#input_mail').val();
+
+        $.ajax({
+            type: "POST",
+            url: "/sign_info",
+            data: {username_give: name, userid_give:id, password_give: pw, email_give:email},
+            success: function (response) {
+                alert(response["msg"]);
+                window.location.reload()
+            }
+        })
+    }
+
 </script>
 
 <body>
@@ -54,7 +71,7 @@
             <input type="email" class="form-control" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
-        <button type="button" class="btn btn-primary">가입하기</button>
+        <button type="button" class="btn btn-primary" onclick="sign_up()">가입하기</button>
     </div>
 </body>
 
