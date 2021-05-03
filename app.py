@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify, redirect, session, url_for
 from flask_jwt_extended import *
 from pymongo import MongoClient
 import datetime
@@ -20,6 +20,9 @@ db = client.dbname
 @app.route('/')
 def home():
     return render_template('login.html')
+@app.route('/main')
+def main():
+    return render_template('main.html')
 
 #회원가입
 @app.route('/register', methods=['GET','POST'])
@@ -41,8 +44,25 @@ def register():
             return "비밀번호가 일치하지 않습니다."
         else:
             db.users.insert_one(doc)
-            return "회원가입이 완료되었습니다!"
-        return redirect(url_for('login'))
+            return redirect(url_for('login'))   
+# 로그인
+app.secret_key = 'dkdkdkdk2'
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        userid = request.form['userid']
+        password = request.form['password']
+
+        members = db.users.find_one({'user_id': userid, 'user_pw': password})
+
+        if members is None:
+            return '아이디 비밀번호를 확인해주세요'
+        else:
+            session['user'] = userid
+            return render_template('main.html')
 
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)

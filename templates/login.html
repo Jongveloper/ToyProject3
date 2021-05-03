@@ -19,22 +19,49 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/sign_up.css">
     <title>로그인페이지</title>
+    <link rel="stylesheet" href="../static/toylogin.css">
 </head>
 <body>
     <div class="wrap">
-        <h1 style="margin-top: 60px">로그인 페이지</h1>
-        <div class="input-group mb-3 info"><!--이름-->
-            <span class="input-group-text" id="input_id">아이디</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                   aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3 info"><!--이름-->
-            <span class="input-group-text" id="input_password">비밀번호 </span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
-                   aria-describedby="inputGroup-sizing-default">
-        </div>
+        <section class="login-form">
+            <h1>Login</h1>
+            <form method="POST" id="login_form">
+                <div class="int-area"> <!-- 아이디입력-->
+                    <input type="text" name="userid" id="id"
+                           autocomplete="off" required>
+                    <label for="id">USER ID</label>
+                </div>
+                <div class="int-area"><!-- 비밀번호입력-->
+                    <input style="margin-bottom: 20px;" type="password" name="password" id="pw"
+                           autocomplete="off" required>
+                    <label  for="pw">PASSWORD</label>
+                    <a class="register" style="color: white; margin: auto;" href="/register">회원가입</a>
+                </div>
+                <div class="btn-area">
+                    <button type="submit" id="btn" class="btn btn-danger">로그인</button>
+                </div>
+            </form>
+        </section>
     </div>
 </body>
+<script>
+    let id = $('#id');
+    let pw = $('#pw');
+    let btn = $('#btn');
+
+    $(btn).on('click', function() {
+        if ($(id).val() == "") {
+                $(id).next('label').addClass('warning');
+                setTimeout(function() {
+                    $('label').removeClass('warning');
+                },1500);
+        } else if ($(pw).val() == "") {
+                $(pw).next('label').addClass('warning');
+                setTimeout(function() {
+                    $('label').removeClass('warning');
+                },1500);
+        }
+    });
+</script>
 </html>

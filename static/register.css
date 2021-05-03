@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{margin: 0; padding: 0; box-sizing: border-box;}
+body{
+    font-family: 'Jua', sans-serif;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("https://cdn.pixabay.com/photo/2018/03/09/11/50/shaving-brush-3211315_1280.jpg") no-repeat center;
+    background-size: cover;
+}
+.wrap{
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    text-align: center;
+}
+.btn{
+    display: block;
+    margin: auto;
+}
+.info{
+    width: 400px;
+    height: 30px;
+    margin: auto;
+}
