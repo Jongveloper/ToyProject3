@@ -23,56 +23,38 @@
 
     <title>회원가입</title>
 </head>
-<script>
-    function sign_up() {
-        let name = $('#input_name').val();
-        let id = $('#input_id').val();
-        let pw = $('#input_pw').val();
-        let email = $('#input_mail').val();
-
-        $.ajax({
-            type: "POST",
-            url: "/sign_info",
-            data: {username_give: name, userid_give:id, password_give: pw, email_give:email},
-            success: function (response) {
-                alert(response["msg"]);
-                window.location.reload()
-            }
-        })
-    }
-
-</script>
-
 <body>
+<form method="post" id="signup-form">
     <div class="wrap">
         <h1 style="margin-top: 60px;">회원가입 페이지</h1>
         <div class="input-group mb-3 info"><!--이름-->
             <span class="input-group-text" id="input_name">이름</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="text" class="form-control" name="username" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3 info"><!--아이디-->
             <span class="input-group-text" id="input_id">아이디</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="text" class="form-control" name="userid" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3 info"><!--비밀번호-->
-            <span class="input-group-text" id="input_pw">비밀번호</span>
-            <input type="password" class="form-control" aria-label="Sizing example input"
+            <span class="input-group-text"  id="input_pw">비밀번호</span>
+            <input type="password" class="form-control" name="password" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3 info"><!--비밀번호-->
             <span class="input-group-text" id="input_rpw">비밀번호확인</span>
-            <input type="password" class="form-control" aria-label="Sizing example input"
+            <input type="password" class="form-control" name="re_password"  aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
         <div class="input-group mb-3 info"><!--이메일-->
-            <span class="input-group-text" id="input_mail">이메일</span>
-            <input type="email" class="form-control" aria-label="Sizing example input"
+            <span class="input-group-text"  id="input_mail">이메일</span>
+            <input type="email" class="form-control" name="email" aria-label="Sizing example input"
                    aria-describedby="inputGroup-sizing-default">
         </div>
-        <button type="button" class="btn btn-primary" onclick="sign_up()">가입하기</button>
+        <button type="submit" class="btn btn-primary">가입하기</button>
     </div>
+</form>
 </body>
 
 </html>
