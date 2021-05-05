@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{
+    font-family: 'Jua', sans-serif;
+}
+.wrap{
+    width: 500px;
+    margin: auto;
+}
+.img{
+    width: 500px;
+    height: 350px;
+    background-image: url("https://cdn.pixabay.com/photo/2018/02/23/16/59/people-3176020_1280.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.btn{
+    width: 150px;
+    display: block;
+    margin: auto;
+
+}

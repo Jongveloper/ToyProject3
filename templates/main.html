@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -19,7 +18,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
-    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+        *{
+            font-family: 'Jua', sans-serif;
+        }
+    </style>
+    <title>바버</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -48,7 +53,7 @@
         <h1 style="text-align: center">Barber</h1>
         <video autoplay loop muted style="height: 810px;">
             <source src="{{url_for('static', filename='babermain.mp4') }}" type="video/mp4">
-        </video>
+        </video> <!--비디오-->
     </div>
 </body>
 </html>

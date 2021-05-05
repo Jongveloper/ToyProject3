@@ -64,5 +64,32 @@ def login():
             session['user'] = userid
             return render_template('main.html')
 
+@app.route('/reservation')
+def reservation():
+    return render_template('reservation.html')
+
+#예약하기 (POST) API
+@app.route('/user', methods=['POST'])
+def save_people():
+    name_receive = request.form['name_give']
+    day_receive = request.form['day_give']
+    phone_receive = request.form['phone_give']
+
+    doc = {
+        'name': name_receive,
+        'day': day_receive,
+        'phone': phone_receive
+    }
+    db.people.insert_one(doc)
+
+    return jsonify({'msg': '예약이 완료되었습니다!'})
+
+#예약 목록 보기 (GET) API
+@app.route('/user', methods=['GET'])
+def view_people():
+    rese = list(db.people.find({}, {'_id': False}))
+    return jsonify({'user': rese})
+
+
 if __name__ == '__main__':
    app.run('0.0.0.0',port=5000,debug=True)
