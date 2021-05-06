@@ -63,10 +63,17 @@ def login():
         else:
             session['user'] = userid
             return render_template('main.html')
+@app.route('/main')
+def mainpage():
+    return render_template('main.html')
 
 @app.route('/reservation')
 def reservation():
     return render_template('reservation.html')
+
+@app.route('/location')
+def location():
+    return render_template('location.html')
 
 #예약하기 (POST) API
 @app.route('/user', methods=['POST'])

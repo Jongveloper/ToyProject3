@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+*{
+    font-family: 'Jua', sans-serif;
+}
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2013/10/29/15/00/ireland-202398_1280.jpg");
+}
+
+.map{
+    margin: auto;
+    margin-top: 10px;
+}
+
+.intro{
+    width: 640px;
+    background-color: white;
+    margin: auto;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    border-radius: 20px;
+}
